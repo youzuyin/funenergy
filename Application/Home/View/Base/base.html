@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <title><block name="title">泛能</block></title>
+    <block name="loading">
+        <link rel="stylesheet" href="__PUBLIC__/css/loading.css">
+        <script src="__PUBLIC__/js/loading.js"></script>
+        <script>
+            document.write('<div  class="mop-load-10"></div>');
+        </script>
+    </block>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/base.css" />
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_7zby4hi0gwopqfr.css">
+    <script src="__PUBLIC__/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <block name="head"></block>
+    <block name="style"></block>
+</head>
+<body>
+<block name="header">
+    <div class="header my-cf">
+        <i class="iconfont icon-left my-fl"></i>
+        <span><block name="page-title">页面标题</block></span>
+    </div>
+</block>
+<block name="main">
+
+</block>
+</body>
+<block name="js-need">
+    <script src="__PUBLIC__/layer/layer.js" type="text/javascript"></script>
+</block>
+
+<block name="script"></block>
+<block name="loadingjs">
+    <script>
+        $(function () {
+            $('.mop-load-10').fadeOut();//加载样式消失
+        })
+    </script>
+</block>
+
+</html>

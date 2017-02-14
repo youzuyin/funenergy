@@ -1,0 +1,83 @@
+<extend name="Base/base"/>
+<block name="title">泛能船舶云监控</block>
+<block name="head"></block>
+<block name="style">
+ <style>
+     body{
+         background: #fff;
+
+     }
+    .login-wrap input{
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        padding: 8px 0;
+        text-align: center;
+        width: 100%;
+        margin-top: 5px;
+        background: #fff;
+     }
+    .login-wrap{
+        width: 70%; ;
+        margin: 15vh auto;
+    }
+    .per-wrap{
+         display: inline-block;
+     }
+     .log-btn{
+         width: 100%;
+         padding: 10px 0;
+         color: #fff;
+         background: #04bd02;
+         border-radius: 5px;
+         margin-top: 50px;
+         font-size: 16px;
+     }
+     .register-btn{
+         width: 100%;
+         padding: 10px 0;
+         background: #f9f8fd;
+         border: 1px solid #ccc;
+         border-radius: 5px;
+         margin-top: 10px;
+         font-size: 16px;
+     }
+
+ </style>
+</block>
+<block name="page-title">登陆</block>
+<block name="main">
+   <div class="login-wrap">
+       <p>用户名</p>
+       <input type="text" id="name" placeholder="请输入用户名">
+       <p class="my-margin-t15">密码</p>
+       <input type="password" id="pwd" placeholder="请输入密码">
+
+       <button class="log-btn">登陆</button>
+       <button class="register-btn">注册账号</button>
+   </div>
+</block>
+<block name="script">
+    <script src="__PUBLIC__/js/Ajax.js" type="text/javascript"></script>
+    <script>
+        $('.log-btn').on('touchend', function () {
+            var uploading=layer.msg('登录中请稍等', {
+                icon: 16
+                ,shade: 0.01
+            });
+
+            var url="{:U('dologin')}";
+            var jsondata = {name:$('#name').val(),pwd:$('#pwd').val()};
+            ajaxGet(url,jsondata,reslogin);
+            layer.close(uploading);
+        })
+
+        function reslogin(data){
+            if(data.res == 0){
+                layer.msg(data.word); return false;
+            }
+            location.href = "{:U('ship/index')}";
+        }
+
+    </script>
+
+</block>

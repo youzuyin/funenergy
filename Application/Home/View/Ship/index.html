@@ -1,0 +1,42 @@
+<extend name="Base/base"/>
+<block name="title">泛能船舶云监控</block>
+<block name="head"></block>
+<block name="style">
+    <style>
+        .main{
+            padding: 10px 0;
+        }
+        .pership{
+            padding: 10px 4%;
+            background: #fff;
+            margin-top: 1px;
+
+        }
+        .icon-ship{
+            font-size: 25px;
+        }
+        .icon-right{
+            margin-top: 5px;
+
+        }
+
+    </style>
+</block>
+<block name="page-title">船舶列表</block>
+<block name="main">
+    <div class="main">
+        <volist name="list" id="vo">
+            <a href="{:U('shipinfo')}?id={$vo.id}">
+        <div class="pership my-cf">
+            <i class="iconfont icon-ship my-cl-wx my-valign-m"></i>
+            <span class="my-margin-l10 my-valign-m">{$vo.name}</span>
+            <i class="iconfont icon-right my-fr my-valign-m"></i>
+        </div>
+            </a>
+        </volist>
+    </div>
+
+</block>
+<block name="script">
+
+</block>

@@ -1,0 +1,11 @@
+.header{
+    width: 100%;
+    position: relative;
+    z-index: 999;
+    padding: 15px 4%;
+    background: #fff;
+    text-align: center;
+    -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,119 @@
+<extend name="Base/base"/>
+<block name="loading"></block>
+<block name="loadingjs"></block>
+<block name="title">泛能船舶云监控</block>
+<block name="head">
+    <script src="__PUBLIC__/js/echarts.min.js"></script>
+</block>
+<block name="style">
+    <style>
+        #chart-m{
+            width: 60%;
+            height: 200px;
+            position:absolute ;
+            top: 35px;
+            left: 50%;
+            -webkit-transform: translateX(-50%);
+            -moz-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+            -o-transform: translateX(-50%);
+            transform: translateX(-50%);
+        }
+        #chart-l{
+            width: 40%;
+            height: 200px;
+            position:absolute ;
+            top: 80px;
+            left: 0;
+
+        }
+        #chart-r{
+            width: 40%;
+            height: 200px;
+            position:absolute ;
+            top: 80px;
+            right: 0;
+        }
+        .speed-wrap{
+            position:absolute;
+            top: 190px;
+            left: 50%;
+            -webkit-transform: translateX(-50%);
+            -moz-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+            -o-transform: translateX(-50%);
+            transform: translateX(-50%);
+        }
+        .speed-num{
+            padding: 2px 30px;
+            border:1px solid #ccc;
+            border-radius: 3px;
+
+        }
+        .main{
+            height: 220px;
+            background: #fff;
+        }
+        .data-wrap{
+            padding: 8px 4%;
+            background: #fff;
+            margin-top: 1px;
+        }
+        .data-tab td{
+            padding: 3px ;
+            text-align: center;
+            border: solid 1px #ccc;
+        }
+
+
+    </style>
+</block>
+<block name="page-title">{$info['name']}详情</block>
+<block name="main">
+    <div class="loading-wrap">
+
+    </div>
+
+
+</block>
+<block name="script">
+    <script>
+        var sid = "{$info['id']}";
+        $(function () {
+            index();
+            loadingPage('load_shipinfo.html?id='+sid)
+        })
+        //动态加载
+        function loadingPage(pageName) {
+            $.ajax({
+                url: pageName,//你对数据库的操作路径
+                type: 'post',//提交方式
+                //dataType:'json',//返回数据的类型
+                success: function (data) {
+                    layer.closeAll();
+                    //  在这里执行对页面的数据刷新
+                    $('.loading-wrap').html($(data))
+                },
+                error: function (data) {
+                    //后台处理数据失败后的回调函数
+                    //   alert(data)
+                }
+            })
+        }
+
+        function index(){
+            var intDiff = 0;//倒计时总秒数量
+            var timer = setInterval(function () {
+                intDiff++;
+                if (intDiff % 30 == 0) {
+                    //console.log(1);
+                    loadingPage('load_shipinfo.html?id='+sid)
+                }
+            }, 1000);
+        }
+
+
+
+
+    </script>
+</block>
